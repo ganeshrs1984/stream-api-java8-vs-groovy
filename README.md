@@ -65,3 +65,27 @@ Arrays.stream(new int[] {1, 2, 3})
 ```
  5
 ```
+## Example 4
+   ### Java8
+```
+    Stream.of("d2", "a2", "b1", "b3", "c")
+    .map(s -> {
+        return s.toUpperCase();
+    })
+    .filter(s -> {
+        return s.startsWith("A");
+    })
+    .forEach(s -> System.out.println("forEach: " + s));
+```
+   ### Groovy
+```
+        List<String> values = ["d2", "a2", "b1", "b3", "c"]
+        values.collect{it -> it.toUpperCase()} .findAll{it.contains("A")}.each {it -> println it}
+    
+```
+
+
+  ### O/P
+```
+ A2
+```
