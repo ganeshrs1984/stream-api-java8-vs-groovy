@@ -89,3 +89,59 @@ Arrays.stream(new int[] {1, 2, 3})
 ```
  A2
 ```
+
+# Collect
+
+Collect is an extremely useful terminal operation to transform the elements of the stream into a different kind of result, e.g. a List, Set or Map
+
+### Most code samples from this section use the following list of persons for demonstration purposes:
+
+```
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+List<Person> persons =
+    Arrays.asList(
+        new Person("Max", 18),
+        new Person("Peter", 23),
+        new Person("Pamela", 23),
+        new Person("David", 12));
+```
+
+## Example 5
+
+   ### Get the list of name starts with P
+   
+   ### Java8
+```
+    List<Person> filtered =
+    persons
+        .stream()
+        .filter(p -> p.name.startsWith("P"))
+        .collect(Collectors.toList());
+
+     System.out.println(filtered);    // [Peter, Pamela]
+
+```
+   ### Groovy
+```
+       List filtered = persons.findAll{it -> it.name.startsWith('P')}
+       println filtered    
+    
+```
+   ### 
+    [Peter, Pamela]
+
+
