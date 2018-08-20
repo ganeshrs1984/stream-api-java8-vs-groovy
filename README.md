@@ -145,3 +145,33 @@ List<Person> persons =
     [Peter, Pamela]
 
 
+# Group By
+
+
+## Example 6
+
+   ### Group By Age
+   
+   ### Java8
+```
+   Map<Integer, List<Person>> personsByAge = persons
+    .stream()
+    .collect(Collectors.groupingBy(p -> p.age));
+
+   personsByAge
+    .forEach((age, p) -> System.out.format("age %s: %s\n", age, p));
+
+
+```
+   ### Groovy
+```
+      persons.groupBy {it -> it.age}.each { k,v -> println k + '' +  v}
+    
+```
+   ### 
+   
+    18 [Max]
+    23 [Peter, Pamela]
+    12 [David]
+
+
