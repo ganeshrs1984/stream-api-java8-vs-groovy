@@ -1,6 +1,17 @@
 # stream-api-java8-vs-groovy
   ##  Goovy alternative of Java8's stream operation
 
+| Example   |     Java 8     |  Groovy |
+|----------|:-------------:|------:|
+| 1 | .filter & .map | findAll |
+| 2 | .findFirst   |   take |
+| 3 | .map |    .collect |
+| 4 | .filter & .map | findAll |
+| 5 | .filter & .collect  |   findAll |
+| 6 | .groupingBy | .groupBy |
+| 7 | .Collectors.toMap   |   .collectEntries |
+| 8 | .reduce |    .inject |
+
 ## Example 1
    ### Java8
 ```
@@ -198,4 +209,27 @@ List<Person> persons =
    
 // {18=Max, 23=Peter;Pamela, 12=David}
 
+## Example 8
+
+   ### Converting toMap 
+   
+   ### Java8
+```
+  persons
+    .stream()
+    .reduce((p1, p2) -> p1.age > p2.age ? p1 : p2)
+    .ifPresent(System.out::println);    // Pamela
+
+```
+   ### Groovy
+```      
+        Person person = persons.inject { result1,result2 ->
+            result1 = result1.age > result2.age ? result1 : result2
+        }
+        
+        println person.name
+```
+   ### O/P 
+   
+// Pamela
 
