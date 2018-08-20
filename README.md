@@ -174,4 +174,28 @@ List<Person> persons =
     23 [Peter, Pamela]
     12 [David]
 
+## Example 7
+
+   ### Converting toMap 
+   
+   ### Java8
+```
+   Map<Integer, String> map = persons
+    .stream()
+    .collect(Collectors.toMap(
+        p -> p.age,
+        p -> p.name,
+        (name1, name2) -> name1 + ";" + name2));
+
+
+```
+   ### Groovy
+```      
+     Map filteredPerson = persons.groupBy {it -> it.age}.collectEntries { k,v -> [(k):v.join(';')]}
+     println filteredPerson
+```
+   ### O/P 
+   
+// {18=Max, 23=Peter;Pamela, 12=David}
+
 
