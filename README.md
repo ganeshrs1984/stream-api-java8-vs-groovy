@@ -1,5 +1,5 @@
 # stream-api-java8-vs-groovy
-Stream api java 8 - how to write the same in groovy
+  ##  Goovy alternative of Java8's stream operation
 
 ## Example 1
    ### Java8
